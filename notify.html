@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Still Alive</title>
+
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Still Alive</h1>
+            <p>Always remember to let your friends know you're home safely.</p>
+            <i class="fa fa-cogs"></i>
+        </div>
+    </header>
+
+    <!-- This is the already signed-in state. or when a user logs in/signs up-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <main>
+                    Set up a notification to let your friend know that you are safely home.
+
+                    <!-- Two different 'views' -->
+                    <!--<div class="btn-group btn-group-vertical">-->
+                        <!--<button type="submit" class="btn btn-primary">-->
+                            <!--Find contact from your Phone Book.-->
+                        <!--</button>-->
+
+                        <!--<button type="submit" class="btn btn-primary">-->
+                            <!--Type in a new number.-->
+                        <!--</button>-->
+                    <!--</div>-->
+
+                    <!-- Pick from Phone Book-->
+                    <form>
+                        <div class="form-group">
+                            <label>Find Contact from Phone Book</label>
+                            <input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" placeholder="Type Name" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-success">
+                            Set Reminder
+                        </button>
+                    </form>
+
+                    <!-- Type in Phone Number-->
+                    <form>
+
+                        <div class="form-group">
+                            <label for="newNum">New Number</label>
+                            <input type="text" id="newNum" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" placeholder="Phone Number" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-success">
+                            Set Reminder
+                        </button>
+                    </form>
+
+                    <!-- Pick from Recents -->
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
