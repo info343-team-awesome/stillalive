@@ -19,3 +19,17 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .controller('SignUpController', function($scope, $http) {
         'use strict';
     });
+//
+//angular.module(' ', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
+//    .config(function($stateProvider, $urlRouterProvider) {
+//        $stateProvider
+//            .state('chooseContact', {
+//                url: '/choose-contact',
+//                templateUrl: 'views/notify-who.html',
+//                controller: 'ContactController'
+//            });
+//        $urlRouterProvider.otherwise('/chooseContact');
+//    })
+//    .controller('ContactController', function($scope, $http) {
+//        'use strict'
+//    });

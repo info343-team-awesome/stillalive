@@ -2,7 +2,7 @@
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 
-body {
+body .signin {
     font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 300;
@@ -17,10 +17,14 @@ header {
     color: #FFF;
 }
 
-.col-md-offset-3 {
+.col-md-offset-3 .signin {
     background-color: #FFF;
     border-radius: 5px;
     padding: 1em;
+}
+
+.loggedin {
+    margin-top: 40px;
 }
 
 a {
@@ -57,4 +61,39 @@ a:hover, a:focus {
     float: right;
     padding-right: 25%;
     font-size: 20px;
+}
+
+/*Nav Properties*/
+nav {
+    font-size: 35px;
+    background-color: #283F58;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#test {
+    float: left;
+    position: relative;
+    left: 50%;
+}
+
+nav h1 {
+    font-size: 25px;
+    font-weight: 400;
+    float: left;
+    margin-top: 10px;
+    position: relative;
+    left: -50%;
+}
+
+svg {
+    height: 1em;
+    width: 1em;
+    margin-left: 0.25em;
+    fill: currentColor;
+    position: fixed;
+    margin-top: 6px;
 }
