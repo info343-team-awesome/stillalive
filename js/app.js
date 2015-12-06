@@ -1,20 +1,33 @@
 angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('login', {
-                url: '/login',
-                templateUrl: 'views/log-in.html',
-                controller: 'LoginController'
+            .state('firstpage-signup', {
+                url: '/firstpage-signup',
+                templateUrl: 'views/firstpage-signup.html',
+                controller: 'FirstPageController'
             })
-            .state('signup', {
-                url: '/signup',
-                templateUrl: 'views/sign-up.html',
-                controller: 'SignUpController'
+            .state('firstpage-login', {
+                url: '/firstpage-login',
+                templateUrl: 'views/firstpage-login.html',
+                controller: 'FirstPageController'
             });
-        $urlRouterProvider.otherwise('/index');
+        $urlRouterProvider.otherwise('/firstpage-signup');
     })
-    .controller('LoginController', function($scope, $http) {
+    .controller('FirstPageController', function($scope, $http) {
         'use strict';
+
+        $('#login-button').click(function() {
+            $('#login-button').addClass('selected');
+            $('#signup-button').removeClass('selected');
+        });
+
+        $('#signup-button').click(function() {
+            $('#signup-button').addClass('selected');
+            $('#login-button').removeClass('selected');
+        });
+
+
+
     })
     .controller('SignUpController', function($scope, $http) {
         'use strict';
