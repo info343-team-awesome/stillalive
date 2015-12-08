@@ -1,17 +1,17 @@
 angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('firstpage-signup', {
-                url: '/firstpage-signup',
-                templateUrl: 'views/firstpage-signup.html',
+            .state('signup', {
+                url: '/signup',
+                templateUrl: 'views/signup.html',
                 controller: 'FirstPageController'
             })
-            .state('firstpage-login', {
-                url: '/firstpage-login',
-                templateUrl: 'views/firstpage-login.html',
+            .state('login', {
+                url: '/login',
+                templateUrl: 'views/login.html',
                 controller: 'FirstPageController'
             });
-        $urlRouterProvider.otherwise('/firstpage-signup');
+        $urlRouterProvider.otherwise('/signup');
     })
     .controller('FirstPageController', function($scope, $http) {
         'use strict';
