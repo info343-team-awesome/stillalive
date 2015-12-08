@@ -8,6 +8,8 @@
 
     <!-- Angular Script File -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <!-- Jquery script file -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!--angular ui-router module-->
@@ -40,29 +42,34 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container" id="login-box" ng-app="Main" ng-controller="FirstPageController">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 signin">
                 <main>
-                    <div class="row">
+                    <div class="row row-border">
                         <!-- maybe use nav tabs instead later.... -->
                         <div class="col-xs-6">
-                            <a ui-sref="signup">
-                                <h3>Sign Up</h3>
+                            <a ui-sref="firstpage-signup">
+                                <h3 id="signup-button" class="selected">Sign Up</h3>
                             </a>
                         </div>
                         <div class="col-xs-6 what">
-                            <a ui-sref="login">
-                                <h3>Log In</h3>
+                            <a ui-sref="firstpage-login" >
+                                <h3 id="login-button">Log In</h3>
                             </a>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="container" ng-app="Main" ng-controller="LoginController">
-                            <div ui-view>
 
-                            </div>
+                    <div class="row row-border">
+                        <div ui-view class="col-md-12">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 id="next-button">Next</h3>
                         </div>
                     </div>
                 </main>
