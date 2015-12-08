@@ -1,30 +1,53 @@
 angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
+            .state('firstpage', {
+                url: '/firstpage',
+                templateUrl: 'firstpage/firstpage_wrapper.html',
+                controller: 'FirstPageController'
+            })
             .state('signup', {
+                parent: 'firstpage',
                 url: '/signup',
                 templateUrl: 'views/signup.html',
                 controller: 'FirstPageController'
             })
             .state('login', {
+                parent: 'firstpage',
                 url: '/login',
                 templateUrl: 'views/login.html',
                 controller: 'FirstPageController'
             });
-        $urlRouterProvider.otherwise('/signup');
+        $urlRouterProvider.otherwise('firstpage/signup');
     })
     .controller('FirstPageController', function($scope, $http) {
         'use strict';
 
-        $('#login-button').click(function() {
+        function loginView() {
             $('#login-button').addClass('selected');
             $('#signup-button').removeClass('selected');
-        });
+        }
 
-        $('#signup-button').click(function() {
+        function signupView() {
             $('#signup-button').addClass('selected');
             $('#login-button').removeClass('selected');
-        });
+        }
+
+        function login() {
+            // this should theoretically switch to a notify view
+            // but since we aren't doing that yet, this just navigates
+            // to the navigate page
+            //this comment is just so I remember that fact
+            window.location.href = 'notify.html'
+        }
+
+        function signup() {
+            // this should theoretically switch to a notify view
+            // but since we aren't doing that yet, this just navigates
+            // to the navigate page
+            //this comment is just so I remember that fact
+            window.location.href = 'notify.html'
+        }
 
 
 
