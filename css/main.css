@@ -156,6 +156,9 @@ svg {
 }
 
 /*For desktop or tablet devices*/
-@media 768px {
-    
+@media (min-width: 768px) {
+    header {
+        height: 30%;
+        margin-top: 5%;
+    }
 }
