@@ -18,7 +18,7 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
                 templateUrl: 'views/login.html',
                 controller: 'FirstPageController'
             });
-        $urlRouterProvider.otherwise('firstpage/signup');
+        $urlRouterProvider.otherwise('/signup');
     })
     .controller('FirstPageController', function($scope, $http) {
         'use strict';
