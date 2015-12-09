@@ -1,0 +1,37 @@
+<!-- Two different 'views' -->
+<!--<div class="btn-group btn-group-vertical">-->
+<!--<button type="submit" class="btn btn-primary">-->
+<!--Find contact from your Phone Book.-->
+<!--</button>-->
+
+<!--<button type="submit" class="btn btn-primary">-->
+<!--Type in a new number.-->
+<!--</button>-->
+<!--</div>-->
+
+<!-- Pick from Phone Book-->
+<label for >Find Contact from Phone Book</label>
+<form class="input-group">
+    <input id="phone-inp" type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" placeholder="Type Name" required />
+
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-success">
+                            Set Reminder
+                        </button>
+                    </span>
+</form>
+
+<!-- Type in Phone Number-->
+<form>
+
+    <div class="form-group">
+        <label for="newNum">New Number</label>
+        <input type="text" id="newNum" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" placeholder="Phone Number" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Set Reminder
+    </button>
+</form>
+
+<!-- Pick from Recents -->

@@ -1,59 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Still Alive</title>
+        <title>Still Alive</title>
 
-    <!-- Angular Script File -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <!-- Angular Script File -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
-    <!-- Jquery script file -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!--angular ui-router module-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
-    <!--angular ui-router module-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+        <!--angular uuid module (for unique ids)-->
+        <script src="lib/angular-uuid.js"></script>
 
-    <!--angular uuid module (for unique ids)-->
-    <script src="lib/angular-uuid.js"></script>
+        <!--angular local storage module (for local storage)-->
+        <script src="lib/angular-local-storage.min.js"></script>
 
-    <!--angular local storage module (for local storage)-->
-    <script src="lib/angular-local-storage.min.js"></script>
+        <!--lodash library-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
 
-    <!--lodash library-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+        <!-- Bootstrap Form Helpers -->
+        <!--<link href="css/bootstrap-form-helpers.min.css" rel="stylesheet" media="screen">-->
 
-    <!-- Bootstrap Form Helpers -->
-    <!--<link href="css/bootstrap-form-helpers.min.css" rel="stylesheet" media="screen">-->
+        <!-- http://bootstrapformhelpers.com/phone/#jquery-plugins-->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 
-    <!-- http://bootstrapformhelpers.com/phone/#jquery-plugins-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/app.js"></script>
+    </head>
 
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/app.js"></script>
-</head>
-<body class="signin-body">
-    <header>
-        <div class="container">
-            <h1>Still Alive</h1>
-            <p>Always remember to let your friends know you're home safely.</p>
+    <body ng-app="Main">
+        <div ui-view>
+
         </div>
-    </header>
+    </body>
 
-    <div class="container" id="login-box" ng-app="Main" ng-controller="FirstPageController">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 main">
-                <main>
-                    <div class="row">
-                        <div ui-view class="col-md-12">
-
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </div>
-
-</body>
 </html>
