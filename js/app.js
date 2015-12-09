@@ -8,15 +8,15 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
                 controller: 'FirstPageController'
             })
             //children view to firstpage
+            .state('about', {
+                parent: 'firstpage',
+                url: '/about',
+                templateUrl: 'views/firstpage/about.html'
+            })
             .state('signup', {
                 parent: 'firstpage',
                 url: '/signup',
                 templateUrl: 'views/firstpage/signup.html'
-            })
-            .state('login', {
-                parent: 'firstpage',
-                url: '/login',
-                templateUrl: 'views/firstpage/login.html'
             })
 
             //children patent view
@@ -31,18 +31,18 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
                 url: '/test',
                 templateUrl: 'views/notify/test-notify-page.html'
             });
-        $urlRouterProvider.otherwise('/firstpage/signup');
+        $urlRouterProvider.otherwise('/firstpage/about');
     })
     .controller('FirstPageController', function($scope, $http, $state) {
         'use strict';
 
-        function loginView() { state.go('login') }
-
-        function signupView() { state.go('signup') }
+        //function loginView() { state.go('login') }
+        //
+        //function signupView() { state.go('signup') }
 
         function login() { state.go('notifyPages'); }
 
-        function signup() { state.go('notifyPages'); }
+        $scope.signup = function() { $state.go('notifyTest'); }
 
     })
     .controller('NotifyPagesController', function($scope, $http, $state) {
