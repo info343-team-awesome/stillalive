@@ -9,9 +9,6 @@
     <!-- Angular Script File -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
-    <!-- Jquery script file -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
     <!--angular ui-router module-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 
@@ -34,40 +31,9 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/app.js"></script>
 </head>
-<body class="signin-body">
-    <header>
-        <div class="container">
-            <h1>Still Alive</h1>
-            <p>Always remember to let your friends know you're home safely.</p>
-        </div>
-    </header>
+<body class="signin-body" ng-app="Main">
+    <div ui-view>
 
-    <div class="container" id="login-box" ng-app="Main" ng-controller="FirstPageController">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 signin-col">
-                <main>
-                    <div class="row row-border">
-                        <div class="col-xs-6">
-                            <a ui-sref="signup">
-                                <h3 id="signup-button" class="selected">Sign Up</h3>
-                            </a>
-                        </div>
-                        <div class="col-xs-6 what">
-                            <a ui-sref="login" >
-                                <h3 id="login-button">Log In</h3>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div ui-view class="col-md-12">
-
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
     </div>
 
 </body>

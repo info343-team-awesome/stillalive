@@ -1,48 +1,50 @@
 angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('signup', {
-                url: '/signup',
-                templateUrl: 'views/signup.html',
+            //firstpage parent view
+            .state('firstpage', {
+                url: '/firstpage',
+                templateUrl: 'views/firstpage/firstpage_wrapper.html',
                 controller: 'FirstPageController'
             })
+            //children view to firstpage
+            .state('signup', {
+                parent: 'firstpage',
+                url: '/signup',
+                templateUrl: 'views/firstpage/signup.html'
+            })
             .state('login', {
+                parent: 'firstpage',
                 url: '/login',
-                templateUrl: 'views/login.html',
-                controller: 'FirstPageController'
+                templateUrl: 'views/firstpage/login.html'
+            })
+
+            //children patent view
+            .state('notifyPages', {
+                url: '/notifyPages',
+                templateUrl: 'views/notify/notifyPages_wrapper.html',
+                controller: 'NotifyPagesController'
+            })
+            //children pages to notify
+            .state('notifyTest', {
+                parent: 'notifyPages',
+                url: '/test',
+                templateUrl: 'views/notify/test-notify-page.html'
             });
-        $urlRouterProvider.otherwise('/signup');
+        $urlRouterProvider.otherwise('/firstpage/signup');
     })
-    .controller('FirstPageController', function($scope, $http) {
+    .controller('FirstPageController', function($scope, $http, $state) {
         'use strict';
 
-        $('#login-button').click(function() {
-            $('#login-button').addClass('selected');
-            $('#signup-button').removeClass('selected');
-        });
+        function loginView() { state.go('login') }
 
-        $('#signup-button').click(function() {
-            $('#signup-button').addClass('selected');
-            $('#login-button').removeClass('selected');
-        });
+        function signupView() { state.go('signup') }
 
+        function login() { state.go('notifyPages'); }
 
+        function signup() { state.go('notifyPages'); }
 
     })
-    .controller('SignUpController', function($scope, $http) {
-        'use strict';
+    .controller('NotifyPagesController', function($scope, $http, $state) {
+
     });
-//
-//angular.module(' ', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
-//    .config(function($stateProvider, $urlRouterProvider) {
-//        $stateProvider
-//            .state('chooseContact', {
-//                url: '/choose-contact',
-//                templateUrl: 'views/notify-who.html',
-//                controller: 'ContactController'
-//            });
-//        $urlRouterProvider.otherwise('/chooseContact');
-//    })
-//    .controller('ContactController', function($scope, $http) {
-//        'use strict'
-//    });
