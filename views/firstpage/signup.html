@@ -1,7 +1,7 @@
 <h4 class="headtext">Let your friend know that you aren't dead...yet.</h4>
 
 <form name="nameForm" ng-submit="signup()" novalidate>
-    <input type="text" placeholder="Tell Us Your Name" id="fname" name="fname" ng-model="contact.fname" required/>
+    <input type="text" placeholder="Tell Us Your Name" id="fname" name="fname" ng-model="data.fname" required/>
     <p class="validation-error" ng-if="nameForm.fname.$error.required && nameForm.fname.$touched">
         Name is required.
     </p>

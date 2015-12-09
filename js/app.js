@@ -1,4 +1,7 @@
-angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
+angular.module('Main', ['ui.router'])
+    .factory('userName', function() {
+        return [];
+    })
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             //firstpage parent view
@@ -26,7 +29,7 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
                 controller: 'NotifyPagesController'
             })
             //children pages to notify
-            .state('notifyTest', {
+            .state('info', {
                 parent: 'notifyPages',
                 url: '/test',
                 templateUrl: 'views/notify/phoneAddress.html'
@@ -73,8 +76,10 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
             template: '<input ng-model="inputValue" type="tel" class="phonenumber" placeholder="{{phonenumberPlaceholder}}" title="Phonenumber (Format: (999) 9999-9999)">',
         };
     }])
-    .controller('FirstPageController', function($scope, $http, $state) {
+    .controller('FirstPageController', function($scope, $http, $state, userName) {
         'use strict';
+
+        $scope.data = {};
 
         //function loginView() { state.go('login') }
         //
@@ -82,14 +87,17 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
 
         function login() { state.go('notifyPages'); }
 
-        $scope.signup = function() { $state.go('notifyTest'); }
+        $scope.signup = function() {
+            userName[0] = $scope.data.fname;
+            $state.go('info');
+        }
 
     })
-    .controller('NotifyPagesController', function($scope, $http, $state) {
+    .controller('NotifyPagesController', function($scope, $http, $state, userName) {
 
-        $scope.fname = {};
+        $scope.fname = userName[0];
 
-        $scope.notify = function() { $state.go('notify'); }
+        $scope.notify = function() { $state.go('notify'); };
 
         $scope.save = function() {
 

@@ -1,6 +1,6 @@
-<h4 class="headtext">Hello {{contact.fname}}!</h4>
+<h4 class="headtext">Hello {{fname}}!</h4>
 
-<form name="info" ng-submit="notify" novalidate>
+<form name="info" ng-submit="notify()" novalidate>
     <input type="tel" placeholder="Your Friend or Family's Phone Number"
            id="phoneNum" name="phoneNum" ng-model="phoneNum" pattern="\d{3}-\d{3}-\d{4}" required/>
     <p class="validation-error" ng-if="info.phoneNum.$error.pattern && info.phoneNum.$touched">Phone must be XXX-XXX-XXXX</p>
