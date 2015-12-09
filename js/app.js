@@ -79,6 +79,23 @@ angular.module('Main', ['ui.router'])
     .controller('FirstPageController', function($scope, $http, $state, userName) {
         'use strict';
 
+        var imageIndex = 0;
+        var imagesArray = [
+            "img/stars_bckgrnd.jpeg",
+            "img/umbrella_bckgrnd.jpeg"
+        ];
+
+        function changeBackground(){
+            var index = imageIndex++ % imagesArray.length;
+            $("body").css("background","url('"+ imagesArray[index] +"');" +
+                "background-repeat: no-repeat; background-size: cover;");
+        }
+
+        $(document).ready(function() {
+            console.log('ready');
+            setInterval(changeBackground, 100);
+        });
+
         $scope.data = {};
 
         //function loginView() { state.go('login') }
