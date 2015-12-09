@@ -2,9 +2,6 @@ angular.module('Main', ['ui.router'])
     .factory('userName', function() {
         return [];
     })
-    .config(["$locationProvider", function($locationProvider) {
-        $locationProvider.html5Mode(true);
-    }])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             //firstpage parent view
