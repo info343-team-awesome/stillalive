@@ -29,7 +29,7 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
             .state('notifyTest', {
                 parent: 'notifyPages',
                 url: '/test',
-                templateUrl: 'views/notify/test-notify-page.html'
+                templateUrl: 'views/notify/phoneAddress.html'
             });
         $urlRouterProvider.otherwise('/firstpage/about');
     })
