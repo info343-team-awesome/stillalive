@@ -51,7 +51,8 @@ function initialize() {
 
     // when yes button is clicked center map to user's address and display marker,
     // and start checking to see if they arrive at the address
-    $('#YesButton').click(function () {
+    $('#find-button').click(function () {
+        console.log('find');
         map.setCenter(addressLatLng);
 
         //clear existing marker from map;
