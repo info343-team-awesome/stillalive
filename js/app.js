@@ -2,6 +2,9 @@ angular.module('Main', ['ui.router'])
     .factory('userName', function() {
         return [];
     })
+    .config(["$locationProvider", function($locationProvider) {
+        $locationProvider.html5Mode(true);
+    }])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             //firstpage parent view
@@ -39,7 +42,7 @@ angular.module('Main', ['ui.router'])
                 url: '/confirm',
                 templateUrl: 'views/notify/confirm.html'
             });
-        $urlRouterProvider.otherwise('/firstpage/about');
+        $urlRouterProvider.otherwise('/i/about');
     })
     .directive('phonenumberDirective', ['$filter', function($filter) {
         /*
