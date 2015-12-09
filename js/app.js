@@ -1,6 +1,11 @@
 angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
+            .state('about', {
+                url: '/about',
+                templateUrl: 'views/about.html',
+                controller: 'FirstPageController'
+            })
             .state('signup', {
                 url: '/signup',
                 templateUrl: 'views/signup.html',
@@ -11,7 +16,7 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
                 templateUrl: 'views/login.html',
                 controller: 'FirstPageController'
             });
-        $urlRouterProvider.otherwise('/signup');
+        $urlRouterProvider.otherwise('/about');
     })
     .controller('FirstPageController', function($scope, $http) {
         'use strict';
