@@ -1,11 +1,13 @@
 angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
+            //firstpage parent view
             .state('firstpage', {
                 url: '/firstpage',
                 templateUrl: 'views/firstpage/firstpage_wrapper.html',
                 controller: 'FirstPageController'
             })
+            //children view to firstpage
             .state('signup', {
                 parent: 'firstpage',
                 url: '/signup',
@@ -16,10 +18,18 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
                 url: '/login',
                 templateUrl: 'views/firstpage/login.html'
             })
+
+            //children patent view
             .state('notifyPages', {
-                url: '/firstpage',
+                url: '/notifyPages',
                 templateUrl: 'views/notify/notifyPages_wrapper.html',
                 controller: 'NotifyPagesController'
+            })
+            //children pages to notify
+            .state('notifyTest', {
+                parent: 'notifyPages',
+                url: '/test',
+                templateUrl: 'views/notify/test-notify-page.html'
             });
         $urlRouterProvider.otherwise('/firstpage/signup');
     })
