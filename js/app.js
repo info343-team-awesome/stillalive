@@ -3,69 +3,38 @@ angular.module('Main', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
         $stateProvider
             .state('firstpage', {
                 url: '/firstpage',
-                templateUrl: 'firstpage/firstpage_wrapper.html',
+                templateUrl: 'views/firstpage/firstpage_wrapper.html',
                 controller: 'FirstPageController'
             })
             .state('signup', {
                 parent: 'firstpage',
                 url: '/signup',
-                templateUrl: 'views/signup.html',
-                controller: 'FirstPageController'
+                templateUrl: 'views/firstpage/signup.html'
             })
             .state('login', {
                 parent: 'firstpage',
                 url: '/login',
-                templateUrl: 'views/login.html',
-                controller: 'FirstPageController'
+                templateUrl: 'views/firstpage/login.html'
+            })
+            .state('notifyPages', {
+                url: '/firstpage',
+                templateUrl: 'views/notify/notifyPages_wrapper.html',
+                controller: 'NotifyPagesController'
             });
-        $urlRouterProvider.otherwise('/signup');
+        $urlRouterProvider.otherwise('/firstpage/signup');
     })
-    .controller('FirstPageController', function($scope, $http) {
+    .controller('FirstPageController', function($scope, $http, $state) {
         'use strict';
 
-        function loginView() {
-            $('#login-button').addClass('selected');
-            $('#signup-button').removeClass('selected');
-        }
+        function loginView() { state.go('login') }
 
-        function signupView() {
-            $('#signup-button').addClass('selected');
-            $('#login-button').removeClass('selected');
-        }
+        function signupView() { state.go('signup') }
 
-        function login() {
-            // this should theoretically switch to a notify view
-            // but since we aren't doing that yet, this just navigates
-            // to the navigate page
-            //this comment is just so I remember that fact
-            window.location.href = 'notify.html'
-        }
+        function login() { state.go('notifyPages'); }
 
-        function signup() {
-            // this should theoretically switch to a notify view
-            // but since we aren't doing that yet, this just navigates
-            // to the navigate page
-            //this comment is just so I remember that fact
-            window.location.href = 'notify.html'
-        }
-
-
+        function signup() { state.go('notifyPages'); }
 
     })
-    .controller('SignUpController', function($scope, $http) {
-        'use strict';
+    .controller('NotifyPagesController', function($scope, $http, $state) {
+
     });
-//
-//angular.module(' ', ['ui.router', 'angular-uuid', 'LocalStorageModule'])
-//    .config(function($stateProvider, $urlRouterProvider) {
-//        $stateProvider
-//            .state('chooseContact', {
-//                url: '/choose-contact',
-//                templateUrl: 'views/notify-who.html',
-//                controller: 'ContactController'
-//            });
-//        $urlRouterProvider.otherwise('/chooseContact');
-//    })
-//    .controller('ContactController', function($scope, $http) {
-//        'use strict'
-//    });
