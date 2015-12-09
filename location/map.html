@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- jQuery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="location.js"></script>
+
+    <!-- google maps api -->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPqc3B1TqCnIA0UXPG0jCU15GMJCAPswI&callback=initialize">
+    </script>
+
+
+</head>
+<body>
+    <div id="map" style="width: 320px; height: 480px;"></div>
+    <div>
+        <input id="address" type="textbox" placeholder="enter your address">
+        <input id="button" type="button" value="Find">
+    </div>
+
+    <p id="postalAddress"></p>
+    <button id="YesButton">Yes</button>
+
+</body>
+</html>

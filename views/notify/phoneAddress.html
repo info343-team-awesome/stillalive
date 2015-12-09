@@ -1,11 +1,21 @@
-<form role="form" ng-submit="signup()" novalidate>
-    <input type="text" placeholder="Your Friend or Family's Phone Number" id="phoneNum" required/>
+<h4 class="headtext">Hello {{fname}}!</h4>
+
+<form name="info" ng-submit="notify()" novalidate>
+    <input type="tel" placeholder="Your Friend or Family's Phone Number"
+           id="phoneNum" name="phoneNum" ng-model="phoneNum" pattern="\d{3}-\d{3}-\d{4}" required/>
+    <p class="validation-error" ng-if="info.phoneNum.$error.pattern && info.phoneNum.$touched">Phone must be XXX-XXX-XXXX</p>
+    <hr />
+
+    <input type="text" placeholder="Your Destination Address" id="address" name="address" ng-model="address" required/>
+    <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">
+        We need to know this so that we can send your friend or family a text!
+    </p>
 
     <hr />
 
-    <input type="text" placeholder="Your Destination Address" id="address" required/>
-
-    <hr />
-
-    <button type="submit" class="btn btn-link"><h4>Next</h4></button>
+    <button type="submit" class="btn btn-link" ng-disabled="info.$invalid"><h4>Next</h4></button>
 </form>
+
+
+<!--http://ngmodules.org/modules/angular-twilio-verification
+-->
