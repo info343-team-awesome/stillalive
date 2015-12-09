@@ -2,11 +2,14 @@ angular.module('Main', ['ui.router'])
     .factory('userName', function() {
         return [];
     })
+    .config(["$locationProvider", function($locationProvider) {
+        $locationProvider.html5Mode(true);
+    }])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             //firstpage parent view
             .state('firstpage', {
-                url: '/firstpage',
+                url: '/i',
                 templateUrl: 'views/firstpage/firstpage_wrapper.html',
                 controller: 'FirstPageController'
             })
@@ -24,22 +27,22 @@ angular.module('Main', ['ui.router'])
 
             //children patent view
             .state('notifyPages', {
-                url: '/notifyPages',
+                url: '/m',
                 templateUrl: 'views/notify/notifyPages_wrapper.html',
                 controller: 'NotifyPagesController'
             })
             //children pages to notify
             .state('info', {
                 parent: 'notifyPages',
-                url: '/test',
+                url: '/info',
                 templateUrl: 'views/notify/phoneAddress.html'
             })
             .state('notify', {
                 parent: 'notifyPages',
-                templateUrl: 'views/notify/confirm.html',
-                controller: 'NotifyPagesController'
+                url: '/confirm',
+                templateUrl: 'views/notify/confirm.html'
             });
-        $urlRouterProvider.otherwise('/firstpage/about');
+        $urlRouterProvider.otherwise('/i/about');
     })
     .directive('phonenumberDirective', ['$filter', function($filter) {
         /*
