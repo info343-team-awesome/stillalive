@@ -69,6 +69,11 @@ button, .btn, .btn-link:hover, .btn-link:focus {
     text-align: center;
 }
 
+.validation-error {
+    color: #DD0000;
+    font-size: 0.9em;
+}
+
 /*For desktop or tablet devices*/
 @media (min-width: 768px) {
     header {
