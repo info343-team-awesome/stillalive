@@ -32,7 +32,7 @@ angular.module('Main', ['ui.router'])
             .state('info', {
                 parent: 'notifyPages',
                 url: '/info',
-                templateUrl: 'views/notify/phoneAddress.html'
+                templateUrl: 'views/notify/phone.html'
             })
             .state('notify', {
                 parent: 'notifyPages',
@@ -70,10 +70,6 @@ angular.module('Main', ['ui.router'])
 
         $scope.data = {};
 
-        //function loginView() { state.go('login') }
-        //
-        //function signupView() { state.go('signup') }
-
         $scope.signup = function() {
             userData.fname = $scope.data.fname;
             $state.go('info');
@@ -92,8 +88,9 @@ angular.module('Main', ['ui.router'])
             $state.go('notify');
         };
     })
-    .controller('EndPageController', function($scope, $http, $state) {
-        //$scope.address = address[0];
+    .controller('EndPageController', function($scope, $http, $state, userData) {
+        $scope.fname = userData.fname;
+        $scope.address = userData.address;
 
     })
     .controller('confirmController', function($scope, $http, $state, userData) {
