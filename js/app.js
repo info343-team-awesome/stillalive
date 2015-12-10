@@ -1,4 +1,5 @@
 angular.module('Main', ['ui.router'])
+    .run()
     .factory('userData', function() {
         return {};
     })
@@ -51,32 +52,20 @@ angular.module('Main', ['ui.router'])
     .controller('FirstPageController', function($scope, $http, $state, userData) {
         'use strict';
 
-        var imageIndex = 0;
-        var imagesArray = [
-            "img/stars_bckgrnd.jpeg",
-            "img/umbrella_bckgrnd.jpeg"
-        ];
-
-        function changeBackground(){
-            var index = imageIndex++ % imagesArray.length;
-            $("body").css("background","url('"+ imagesArray[index] +"');" +
-                "background-repeat: no-repeat; background-size: cover;");
-        }
-
-        $(document).ready(function() {
-            console.log('ready');
-            setInterval(changeBackground, 100);
-        });
+        console.log(userData);
+        if(Object.keys(userData).length === 0) { $state.go('about') }
 
         $scope.data = {};
 
         $scope.signup = function() {
             userData.fname = $scope.data.fname;
             $state.go('info');
-        }
-
+        };
     })
     .controller('NotifyPagesController', function($scope, $http, $state, userData) {
+
+        console.log(userData);
+        if(Object.keys(userData).length === 0) { $state.go('about') }
 
         $scope.fname = userData.fname;
 
@@ -89,6 +78,10 @@ angular.module('Main', ['ui.router'])
         };
     })
     .controller('EndPageController', function($scope, $http, $state, userData) {
+
+        console.log(userData);
+        if(Object.keys(userData).length === 0) { $state.go('about') }
+
         $scope.fname = userData.fname;
         $scope.address = userData.address;
         $scope.phone = userData.phoneNum;
@@ -97,6 +90,9 @@ angular.module('Main', ['ui.router'])
 
     })
     .controller('confirmController', function($scope, $http, $state, userData) {
+
+        console.log(userData);
+        if(Object.keys(userData).length === 0) { $state.go('about') }
 
         $scope.data = {};
         $scope.goNext = function() {
