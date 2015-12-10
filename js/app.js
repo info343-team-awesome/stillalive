@@ -88,8 +88,9 @@ angular.module('Main', ['ui.router'])
             $state.go('notify');
         };
     })
-    .controller('EndPageController', function($scope, $http, $state) {
-        //$scope.address = address[0];
+    .controller('EndPageController', function($scope, $http, $state, userData) {
+        $scope.fname = userData.fname;
+        $scope.address = userData.address;
 
     })
     .controller('confirmController', function($scope, $http, $state, userData) {
