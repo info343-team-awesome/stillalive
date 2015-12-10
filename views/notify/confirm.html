@@ -1,9 +1,12 @@
-<div id="map"></div>
-<div>
-    <input id="address" type="textbox" placeholder="enter your address">
+<form name="info" ng-submit="goNext()" novalidate>
+    <input id="address" type="textbox" placeholder="enter your address" name="address" ng-model="address" required>
+    <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">Address is required</p>
     <input id="button" type="button" value="Find">
-</div>
 
-<p id="postalAddress"></p>
-<button id="yes-button">Yes</button>
+    <div id="map"></div>
+
+    <p id="postalAddress"></p>
+    <button id="yes-button">Yes</button>
+    <button type="submit" class="btn btn-link" ng-disabled="info.$invalid"><h4>Next</h4></button>
+</form>
 
