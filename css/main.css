@@ -27,9 +27,18 @@ h4 {
     margin: 0;
 }
 
+h3 {
+    font-size: 14px;
+}
+
 .headtext {
     margin-bottom: 1em;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 12px;
 }
 
 .main {
@@ -80,10 +89,22 @@ button, .btn, .btn-link:hover, .btn-link:focus {
     font-size: 0.9em;
 }
 
+.slogan {
+    font-size: 18px;
+}
+
 /*For desktop or tablet devices*/
 @media (min-width: 768px) {
     header {
         height: 30%;
         margin-top: 5%;
+    }
+
+    .headtext {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
     }
 }
