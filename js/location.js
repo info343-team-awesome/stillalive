@@ -37,8 +37,9 @@ function initialize() {
                 console.log('arrival address: ' + addressLatLng);
 
                 // define the bounds using user entered address
-                var latlngBoundsNE = new google.maps.LatLng(addressLatLng.lat() + .01, addressLatLng.lng() + .01); //ne bounds
-                var latlngBoundsSW = new google.maps.LatLng(addressLatLng.lat() - .01, addressLatLng.lng() - .01); //sw bounds
+                // I did this because dahlia is on drugs.
+                var latlngBoundsNE = new google.maps.LatLng(addressLatLng.lat() + 0.00092, addressLatLng.lng() + 0.00092); //ne bounds
+                var latlngBoundsSW = new google.maps.LatLng(addressLatLng.lat() - 0.00092, addressLatLng.lng() - 0.00092); //sw bounds
                 //console.log('latlngBounds1: ' + latlngBounds1);
                 //console.log('latlngBounds2: ' + latlngBounds2);
                 bounds = new google.maps.LatLngBounds(latlngBoundsSW, latlngBoundsNE);
@@ -65,7 +66,7 @@ function initialize() {
         });
 
         //every 5 seconds call another function that gets the current position and checks if its close to the address entered
-        interval = window.setInterval(checkPosition, 60000);
+        interval = window.setInterval(checkPosition, 5000);
 
     });
 
@@ -83,7 +84,7 @@ function initialize() {
                     },
                     method: "POST",
                     url: "https://api.twilio.com/2010-04-01/Accounts/AC481de4d39673a55296705530e83931d1/Messages.json",
-                    data: {To: '4255125370', From: '+17315034778', Body: 'Dahlia has arrived home.'} // arrived at + address
+                    data: {To: '2062450132', From: '+17315034778', Body: 'Dahlia has arrived home.'} // arrived at + address
                 });
 
                 request.done(function (msg) {
