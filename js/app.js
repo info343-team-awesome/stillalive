@@ -32,7 +32,7 @@ angular.module('Main', ['ui.router'])
             .state('info', {
                 parent: 'notifyPages',
                 url: '/info',
-                templateUrl: 'views/notify/phoneAddress.html'
+                templateUrl: 'views/notify/phone.html'
             })
             .state('notify', {
                 parent: 'notifyPages',
@@ -69,10 +69,6 @@ angular.module('Main', ['ui.router'])
         });
 
         $scope.data = {};
-
-        //function loginView() { state.go('login') }
-        //
-        //function signupView() { state.go('signup') }
 
         $scope.signup = function() {
             userData.fname = $scope.data.fname;
