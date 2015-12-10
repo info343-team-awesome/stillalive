@@ -192,7 +192,7 @@ angular.module('Main', ['ui.router'])
                 console.log(userData.phoneNum);
 
                 if (bounds.contains(currentLatLng)) {
-                    alert('Call your friend');
+                    alert('Text has been sent');
 
                     var request = $.ajax({
                         headers: {
