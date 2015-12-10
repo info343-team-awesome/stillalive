@@ -34,10 +34,10 @@ angular.module('Main', ['ui.router'])
                 url: '/info',
                 templateUrl: 'views/notify/phone.html'
             })
-            .state('notify', {
+            .state('location', {
                 parent: 'notifyPages',
                 url: '/confirm',
-                templateUrl: 'views/notify/confirm.html',
+                templateUrl: 'views/notify/location.html',
                 controller: 'confirmController'
             })
             .state('endpage', {
@@ -85,7 +85,7 @@ angular.module('Main', ['ui.router'])
         $scope.notify = function() {
             userData.phoneNum = $scope.data.phoneNum.split('-').join('');
             console.log(userData.phoneNum);
-            $state.go('notify');
+            $state.go('location');
         };
     })
     .controller('EndPageController', function($scope, $http, $state, userData) {
@@ -96,7 +96,11 @@ angular.module('Main', ['ui.router'])
 
     })
     .controller('confirmController', function($scope, $http, $state, userData) {
-        $scope.goNext = function() { $state.go('endpage'); };
+
+        $scope.data = {};
+        $scope.goNext = function() {
+            $state.go('endpage');
+        };
 
         var autocomplete;
         var userAddress; // address of user formatted as string (postal address)
@@ -106,7 +110,6 @@ angular.module('Main', ['ui.router'])
         //var map;
         var interval; //time interval to call function checkLocation
         var marker; // current marker on map
-
 
         autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */ (
@@ -134,6 +137,7 @@ angular.module('Main', ['ui.router'])
         function onPlaceChanged() {
             console.log('find');
             var address = document.getElementById("autocomplete").value;
+            userData.address = address;
             // use geocoder to find the user entered address
             geocoder.geocode({'address': address}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {

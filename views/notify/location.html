@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<form name="info" ng-submit="goNext()" novalidate>
+    <input id="autocomplete" type="text" placeholder="Your Destination Address"
+           id="address" name="address" ng-model="data.address" required/>
+    <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">
+        We need to know this so that we can send your friend or family a text!
+    </p>
 
-</body>
-</html>
+    <div id="map"></div>
+
+    <p id="postalAddress"></p>
+   <!-- <button id="yes-button">Yes</button>-->
+    <button id="confirm-next" type="submit" class="btn btn-link" ng-disabled="info.$invalid"><h4>Next</h4></button>
+</form>
+
