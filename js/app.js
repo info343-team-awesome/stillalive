@@ -39,6 +39,12 @@ angular.module('Main', ['ui.router'])
                 url: '/confirm',
                 templateUrl: 'views/notify/confirm.html',
                 controller: 'confirmController'
+            })
+            .state('endpage', {
+                parent: 'notifyPages',
+                url: '/endpage',
+                templateUrl: 'views/notify/endpage.html',
+                controller: 'EndPageController'
             });
         $urlRouterProvider.otherwise('/i/about');
     })
@@ -69,7 +75,14 @@ angular.module('Main', ['ui.router'])
 
         }
     })
-    .controller('confirmController', function($scope, $http) {
+    .controller('EndPageController', function($scope, $http, $state) {
+        //$scope.address = address[0];
+
+    })
+    .controller('confirmController', function($scope, $http, $state) {
+
+        $scope.goNext = function() { $state.go('endpage'); };
+
         var userAddress; // address of user formatted as string (postal address)
         var addressLatLng; // latlng of user's address
         var geocoder = new google.maps.Geocoder();
