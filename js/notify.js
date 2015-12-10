@@ -26,6 +26,7 @@ function initialize() {
 
     // when find button is clicked display the address to user
     $('#button').click(function () {
+        console.log('find');
         var address = document.getElementById("address").value;
         // use geocoder to find the user entered address
         geocoder.geocode({'address': address}, function (results, status) {
@@ -51,8 +52,9 @@ function initialize() {
 
     // when yes button is clicked center map to user's address and display marker,
     // and start checking to see if they arrive at the address
-    $('#find-button').click(function () {
-        console.log('find');
+    $('#yes-button').click(function () {
+        console.log('Hello');
+
         map.setCenter(addressLatLng);
 
         //clear existing marker from map;
