@@ -92,6 +92,8 @@ angular.module('Main', ['ui.router'])
         $scope.fname = userData.fname;
         $scope.address = userData.address;
 
+        $scope.goBack = function() { $state.go('info'); };
+
     })
     .controller('confirmController', function($scope, $http, $state, userData) {
         $scope.goNext = function() { $state.go('endpage'); };
