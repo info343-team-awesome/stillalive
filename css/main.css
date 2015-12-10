@@ -91,6 +91,7 @@ button, .btn, .btn-link:hover, .btn-link:focus {
 
 .slogan {
     font-size: 18px;
+    font-weight: 300;
 }
 
 /*For desktop or tablet devices*/
