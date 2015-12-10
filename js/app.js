@@ -32,7 +32,7 @@ angular.module('Main', ['ui.router'])
             .state('info', {
                 parent: 'notifyPages',
                 url: '/info',
-                templateUrl: 'views/notify/phoneAddress.html'
+                templateUrl: 'views/notify/phone.html'
             })
             .state('notify', {
                 parent: 'notifyPages',
@@ -46,10 +46,6 @@ angular.module('Main', ['ui.router'])
         'use strict';
 
         $scope.data = {};
-
-        //function loginView() { state.go('login') }
-        //
-        //function signupView() { state.go('signup') }
 
         function login() { state.go('notifyPages'); }
 

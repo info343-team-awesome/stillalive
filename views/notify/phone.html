@@ -6,13 +6,6 @@
     <p class="validation-error" ng-if="info.phoneNum.$error.pattern && info.phoneNum.$touched">Phone must be XXX-XXX-XXXX</p>
     <hr />
 
-    <input type="text" placeholder="Your Destination Address" id="address" name="address" ng-model="address" required/>
-    <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">
-        We need to know this so that we can send your friend or family a text!
-    </p>
-
-    <hr />
-
     <button type="submit" class="btn btn-link" ng-disabled="info.$invalid"><h4>Next</h4></button>
 </form>
 
