@@ -1,7 +1,8 @@
 <form name="info" ng-submit="goNext()" novalidate>
-    <input id="autocomplete" type="textbox" placeholder="enter your address" name="address" ng-model="address" required>
-    <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">Address is required</p>
-    <!--<input id="findButton" type="button" value="Find">-->
+    <input id="autocomplete" type="text" placeholder="Your Destination Address" id="address" name="address" ng-model="data.address" required/>
+    <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">
+        We need to know this so that we can send your friend or family a text!
+    </p>
 
     <div id="map"></div>
 
