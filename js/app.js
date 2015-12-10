@@ -99,6 +99,7 @@ angular.module('Main', ['ui.router'])
     .controller('confirmController', function($scope, $http, $state, userData) {
         $scope.goNext = function() { $state.go('endpage'); };
 
+        var autocomplete;
         var userAddress; // address of user formatted as string (postal address)
         var addressLatLng; // latlng of user's address
         var geocoder = new google.maps.Geocoder();
@@ -107,6 +108,14 @@ angular.module('Main', ['ui.router'])
         var interval; //time interval to call function checkLocation
         var marker; // current marker on map
 
+
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */ (
+                document.getElementById('autocomplete')), {
+                //types: ['(cities)'],
+            });
+
+        autocomplete.addListener('place_changed', onPlaceChanged);
 
         // create the map based on the current position
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -122,9 +131,10 @@ angular.module('Main', ['ui.router'])
         });
 
         // when find button is clicked display the address to user
-        $('#button').click(function () {
+        //$('#findButton').click(function () {
+        function onPlaceChanged() {
             console.log('find');
-            var address = document.getElementById("address").value;
+            var address = document.getElementById("autocomplete").value;
             // use geocoder to find the user entered address
             geocoder.geocode({'address': address}, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
@@ -144,31 +154,33 @@ angular.module('Main', ['ui.router'])
                     bounds = new google.maps.LatLngBounds(latlngBoundsSW, latlngBoundsNE);
                     console.log('bounds: ' + bounds);
 
-                    $('#postalAddress').html("Is this your address: " + results[0].formatted_address);
+                    //$('#postalAddress').html("Is this your address: " + results[0].formatted_address);
+
+                    $scope.map.setCenter(addressLatLng);
+
+                    //clear existing marker from map;
+                    if (marker != null) {
+                        //marker.setMap(null);
+                    }
+
+                    marker = new google.maps.Marker({
+                        map: $scope.map,
+                        position: addressLatLng
+                    });
                 }
             });
-        });
+        }
 
         // when yes button is clicked center map to user's address and display marker,
         // and start checking to see if they arrive at the address
-        $('#yes-button').click(function () {
+        $('#confirm-next').click(function () {
             console.log('Hello');
 
-            $scope.map.setCenter(addressLatLng);
 
-            //clear existing marker from map;
-            if (marker != null) {
-                //marker.setMap(null);
-            }
-
-            marker = new google.maps.Marker({
-                map: $scope.map,
-                position: addressLatLng
-            });
 
             //every 5 seconds call another function that gets the current position
             // and checks if its close to the address entered
-            interval = window.setInterval(checkPosition, 60000);
+            interval = window.setInterval(checkPosition, 5000);
 
         });
 

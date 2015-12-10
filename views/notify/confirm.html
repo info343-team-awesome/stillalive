@@ -1,12 +1,12 @@
 <form name="info" ng-submit="goNext()" novalidate>
-    <input id="address" type="textbox" placeholder="enter your address" name="address" ng-model="address" required>
+    <input id="autocomplete" type="textbox" placeholder="enter your address" name="address" ng-model="address" required>
     <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">Address is required</p>
-    <input id="button" type="button" value="Find">
+    <!--<input id="findButton" type="button" value="Find">-->
 
     <div id="map"></div>
 
     <p id="postalAddress"></p>
-    <button id="yes-button">Yes</button>
-    <button type="submit" class="btn btn-link" ng-disabled="info.$invalid"><h4>Next</h4></button>
+   <!-- <button id="yes-button">Yes</button>-->
+    <button id="confirm-next" type="submit" class="btn btn-link" ng-disabled="info.$invalid"><h4>Next</h4></button>
 </form>
 
