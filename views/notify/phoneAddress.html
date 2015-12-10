@@ -2,11 +2,11 @@
 
 <form name="info" ng-submit="notify()" novalidate>
     <input type="tel" placeholder="Your Friend or Family's Phone Number"
-           id="phoneNum" name="phoneNum" ng-model="phoneNum" pattern="\d{3}-\d{3}-\d{4}" required/>
+           id="phoneNum" name="phoneNum" ng-model="data.phoneNum" pattern="\d{3}-\d{3}-\d{4}" required/>
     <p class="validation-error" ng-if="info.phoneNum.$error.pattern && info.phoneNum.$touched">Phone must be XXX-XXX-XXXX</p>
     <hr />
 
-    <input type="text" placeholder="Your Destination Address" id="address" name="address" ng-model="address" required/>
+    <input type="text" placeholder="Your Destination Address" id="address" name="address" ng-model="data.address" required/>
     <p class="validation-error" ng-if="info.address.$touched && info.address.$error.required">
         We need to know this so that we can send your friend or family a text!
     </p>
