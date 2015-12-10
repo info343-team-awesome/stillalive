@@ -91,6 +91,7 @@ angular.module('Main', ['ui.router'])
     .controller('EndPageController', function($scope, $http, $state, userData) {
         $scope.fname = userData.fname;
         $scope.address = userData.address;
+        $scope.phone = userData.phoneNum;
 
         $scope.goBack = function() { $state.go('info'); };
 
@@ -206,7 +207,7 @@ angular.module('Main', ['ui.router'])
                         url: "https://api.twilio.com/2010-04-01/Accounts/AC481de4d39673" +
                         "a55296705530e83931d1/Messages.json",
                         data: {To: userData.phoneNum, From: '+17315034778',
-                            Body: userData.fname + ' has arrived home.'} // arrived at + address
+                            Body: userData.fname + ' has arrived at ' + userData.address + '.'} // arrived at + address
                     });
 
                     request.done(function (msg) {
