@@ -91,7 +91,7 @@ button, .btn, .btn-link:hover, .btn-link:focus {
 
 .slogan {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /*For desktop or tablet devices*/
@@ -107,5 +107,9 @@ button, .btn, .btn-link:hover, .btn-link:focus {
 
     h3 {
         font-size: 18px;
+    }
+
+    .slogan {
+        font-weight: 200;
     }
 }
