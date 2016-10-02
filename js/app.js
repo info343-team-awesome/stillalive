@@ -52,7 +52,7 @@ angular.module('Main', ['ui.router'])
     .controller('FirstPageController', function($scope, $http, $state, userData) {
         'use strict';
 
-        console.log(userData);
+        //console.log(userData);
         if(Object.keys(userData).length === 0) { $state.go('about') }
 
         $scope.data = {};
@@ -64,7 +64,7 @@ angular.module('Main', ['ui.router'])
     })
     .controller('NotifyPagesController', function($scope, $http, $state, userData) {
 
-        console.log(userData);
+        /*console.log(userData);*/
         if(Object.keys(userData).length === 0) { $state.go('about') }
 
         $scope.fname = userData.fname;
@@ -73,13 +73,13 @@ angular.module('Main', ['ui.router'])
 
         $scope.notify = function() {
             userData.phoneNum = $scope.data.phoneNum.split('-').join('');
-            console.log(userData.phoneNum);
+            //console.log(userData.phoneNum);
             $state.go('location');
         };
     })
     .controller('EndPageController', function($scope, $http, $state, userData) {
 
-        console.log(userData);
+        /*console.log(userData);*/
         if(Object.keys(userData).length === 0) { $state.go('about') }
 
         $scope.fname = userData.fname;
@@ -91,7 +91,7 @@ angular.module('Main', ['ui.router'])
     })
     .controller('confirmController', function($scope, $http, $state, userData) {
 
-        console.log(userData);
+        /*console.log(userData);*/
         if(Object.keys(userData).length === 0) { $state.go('about') }
 
         $scope.data = {};
@@ -132,7 +132,7 @@ angular.module('Main', ['ui.router'])
         // when find button is clicked display the address to user
         //$('#findButton').click(function () {
         function onPlaceChanged() {
-            console.log('find');
+            /*console.log('find');*/
             var address = document.getElementById("autocomplete").value;
             userData.address = address;
             // use geocoder to find the user entered address
@@ -142,7 +142,7 @@ angular.module('Main', ['ui.router'])
                     //console.log(results[0].geometry.location);
                     userAddress = results[0].formatted_address;
                     addressLatLng = results[0].geometry.location; // latlng of user address
-                    console.log('arrival address: ' + addressLatLng);
+                    //console.log('arrival address: ' + addressLatLng);
 
                     // define the bounds using user entered address
                     var latlngBoundsNE = new google.maps.LatLng(addressLatLng.lat()
@@ -152,7 +152,7 @@ angular.module('Main', ['ui.router'])
                     //console.log('latlngBounds1: ' + latlngBounds1);
                     //console.log('latlngBounds2: ' + latlngBounds2);
                     bounds = new google.maps.LatLngBounds(latlngBoundsSW, latlngBoundsNE);
-                    console.log('bounds: ' + bounds);
+                    //console.log('bounds: ' + bounds);
 
                     //$('#postalAddress').html("Is this your address: " + results[0].formatted_address);
 
@@ -174,7 +174,7 @@ angular.module('Main', ['ui.router'])
         // when yes button is clicked center map to user's address and display marker,
         // and start checking to see if they arrive at the address
         $('#confirm-next').click(function () {
-            console.log('Hello');
+            //console.log('Hello');
 
 
 
@@ -188,8 +188,8 @@ angular.module('Main', ['ui.router'])
             navigator.geolocation.getCurrentPosition(function(position) {
                 var currentLatLng = new google.maps.LatLng(position.coords.latitude,
                     position.coords.longitude);
-                console.log('currentLatLng: ' + currentLatLng);
-                console.log(userData.phoneNum);
+                //console.log('currentLatLng: ' + currentLatLng);
+                //console.log(userData.phoneNum);
 
                 if (bounds.contains(currentLatLng)) {
                     alert('Text has been sent');
@@ -207,11 +207,11 @@ angular.module('Main', ['ui.router'])
                     });
 
                     request.done(function (msg) {
-                        console.log(msg);
+                        //console.log(msg);
                     });
 
                     request.fail(function (jqXHR, textStatus) {
-                        console.log("Request failed: " + textStatus);
+                        //console.log("Request failed: " + textStatus);
                     });
 
                     clearInterval(interval);

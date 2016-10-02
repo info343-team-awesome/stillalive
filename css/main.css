@@ -46,9 +46,14 @@ p {
     font-size: 12px;
 }
 
+#login-box .row {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
 .main {
-    /*background: rgba(255, 255, 255, 0.85);*/
-    background-color: #FFF;
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 5px;
     padding: 1em;
 }
@@ -97,6 +102,13 @@ button, .btn, .btn-link:hover, .btn-link:focus {
 .slogan {
     font-size: 18px;
     font-weight: 400;
+    margin-bottom: 2em;
+}
+
+.start_button{
+    font-size: 18px;
+    margin: 0;
+    font-weight: 400;
 }
 
 
@@ -112,11 +124,19 @@ button, .btn, .btn-link:hover, .btn-link:focus {
         font-size: 20px;
     }
 
+    h1 {
+        font-size: 40px;
+    }
+
     h3 {
         font-size: 18px;
     }
 
     .slogan {
         font-weight: 200;
+    }
+
+    .start_button{
+        font-size: 24px;
     }
 }
